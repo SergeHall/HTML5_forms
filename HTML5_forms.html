@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="My first steps in the WEB">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Serge">
+    <style>
+        h1 {
+            color: dodgerblue;
+            border-width: thick;
+            border-style: double;
+            text-align: center
+        }
+    </style>
+    <title>HTML5 Forms</title>
+</head>
+<body>
+  <h1>HTML Формы</h1>
+   <p>Для сбора пользовательских данных используется HTML форма. Затем
+       вводимые пользователем данные могут быть отправлены на сервер для обработки.</p>
+  <h3>Элемент form</h3>
+    <p>HTML элемент <strong>form</strong> определяет форму, которая
+       используется для сбора
+                      пользовательских данных:</p>
+    <p>HTML форма содержит элементы формы.
+      Элементы формы - это различные типы элементов ввода, такие как текстовые поля, флажки, переключатели, кнопки отправки и многое другое.</p>
+  <h3>Элемент input</h3>
+  <p>Элемент input - самый важный элемент формы.<br>
+    Элемент input отображается несколькими способами, в зависимости от атрибута type.</p>
+
+  <img src="pictures/input_type.png" height="111" width="700"
+  alt="input_type"/>
+  <form>
+    Имя:<br>
+      <label>
+          <input type="text" name="firstname">
+      </label>
+      <br>
+    Фамилия:<br>
+      <label>
+          <input type="text" name="lastname">
+      </label>
+  </form>
+
+  <p>Обратите внимание, что сама форма не видна.</p>
+
+  <p>Также обратите внимание, что ширина поля ввода текста 20 символов по
+     умолчанию.</p>
+  <h3>Элемент label</h3>
+  <p>Обратите внимание на использование элемента label в приведенном выше
+      примере.<br>
+      Тег label определяет метку для многих элементов формы.<br>
+      Элемент label полезен для пользователей программы чтения с экрана,
+      потому что чтения с экрана будет читать вслух надпись, когда
+      пользователь сосредоточен на входном элементе.<br>
+      Элемент label также помогает пользователям, которые испытывают
+      трудности при нажатии на очень маленькие области (например,
+      переключатели или флажки) - потому что, когда пользователь щелкает
+      текст внутри элемента label, он переключает переключатель/флажок.<br>
+      Атрибут for тега label должен быть равен атрибуту id элемента <code>input
+              type="radio"</code>, чтобы связать их вместе.</p>
+  <h3>Кнопки radio</h3>
+  <p>Переключатели позволяют пользователю выбрать один из ограниченного числа вариантов.</p>
+  <form>
+      <label>
+          <input type="radio" name="gender" value="male" checked>
+      </label> Мужчина<br>
+      <label>
+          <input type="radio" name="gender" value="female">
+      </label> Женщина<br>
+      <label>
+          <input type="radio" name="gender" value="other">
+      </label> другое
+  </form>
+  <h3>Кнопка submit</h3>
+  <p><code>&lt;input type="submit"&gt;</code> определяет кнопку для
+      представления в виде данных для обработчика форм.<br>
+      Обработчик форм обычно представляет собой страницу на сервере со
+      скриптом для обработки входных данных.<br>
+      Обработчик форм задается в окне формы атрибутом action.</p>
+   <form action="https://www.sergioartg.com">
+  Firstname:<br>
+       <label>
+           <input type="text" name="firstname" value="Serge">
+       </label>
+       <br>
+  Lastname:<br>
+       <label>
+           <input type="text" name="lastname" value="Site">
+       </label>
+       <br><br>
+  <input type="submit" value="Отправить">
+  </form>
+
+  <p>Если Вы нажмете на кнопку "Отправить", данные форма будут отправлены на
+     страницу "https://www.sergioartg.com".</p>
+  <h3>Атрибут action</h3>
+  <p>Атрибут action определяет действие, которое должно быть выполнено при
+      отправке формы.<br>
+      Обычно данные формы отправляются на страницу сервер, когда пользователь
+      нажимает на кнопку "Отправить".<br>
+      В приведенном выше примере данные формы отправляются на страницу на сервере под названием
+      "https://www.sergioartg.com". Эта страница содержит серверный скрипт,
+      который обрабатывает данные формы, но у меня просто ссылка на сайт:</p>
+    <code>&lt;form action="https://www.sergioartg.com"&gt;</code>
+  <p>Если атрибут action опущен, действие устанавливается на текущую страницу.</p>
+  <h3>Атрибут target</h3>
+  <p>Атрибут target указывает, будет ли представленный результат открыт в
+      новой вкладке браузера, фрейме или в текущем окне.<br>
+      По умолчанию значение "_self" означает, что форма будет отправлена в
+      текущем окне.<br>
+      Чтобы сделать результат формы открытым в новой вкладке браузера, используйте значение "_blank".</p>
+    <code>&lt;form action="/action_page.php" target="_blank" method="POST"&gt;</code>
+  <h3>Атрибут method</h3>
+  <p>Эта форма будет отправлена с использованием метода <strong>GET</strong>:
+  </p>
+
+  <form action="/action_page.php" target="_blank" method="GET">
+    Имя:<br>
+      <label>
+          <input type="text" name="firstname" value="Андрей">
+      </label>
+      <br>
+    Фамилия:<br>
+      <label>
+          <input type="text" name="lastname" value="Щипунов">
+      </label>
+      <br><br>
+    <input type="submit" value="Отправить">
+  </form>
+
+  <p>После отправки обратите внимание, что значения формы отображаются в
+     адресной строке новой вкладки браузера.</p>
+  <p>Эта форма будет отправлена с использованием метода <strong>POST</strong>:
+ </p>
+
+  <form action="/action_page.php" target="_blank" method="POST">
+    Имя:<br>
+      <label>
+        <input type="text" name="firstname" value="Андрей">
+      </label>
+      <br>
+    Фамилия:<br>
+      <label>
+          <input type="text" name="lastname" value="Щипунов">
+      </label>
+      <br><br>
+    <input type="submit" value="Отправить">
+  </form>
+  <p>После отправки обратите внимание, что, в отличие от метода GET, значения
+     формы не отображаются в адресной строке новой вкладки браузера.</p>
+  <p><strong>Когда использовать GET?</strong></p>
+  <p>Метод HTTP по умолчанию при отправке данных формы GET.<br>
+      Однако при использовании GET данные формы будут видны в поле адреса страницы:</p>
+  <p>/action_page.php?firstname=Андрей&lastname=Щипунов</p>
+  <p>Заметка о GET:<br>
+      - Добавляет данные формы в URL адрес в паре имя/значение<br>
+      - Длина URL адреса ограничена (2048 символов)<br>
+      - Никогда не используйте GET для отправки конфиденциальных данных!
+      (будет виден в URL адресе)<br>
+      - Эффективно для отправки форм, когда пользователь хочет добавить
+      результат в закладки<br>
+      GET лучше подходит для незащищенных данных, таких как строки запросов в Google</p>
+  <p><strong>Когда использовать POST?</strong></p>
+  <p>Всегда используйте POST, если данные формы содержат конфиденциальную или личную информацию.
+      Метод POST не отображает данные формы в поле адреса страницы.</p>
+  <p>Заметка о POST:<br>
+      - POST не имеет ограничений по размеру и может использоваться для
+      отправки больших объемов данных.<br>
+      - Отправленные формы с сообщением не могут быть закладками</p>
+  <h3>Атрибут name</h3>
+  <p>Каждое поле ввода должно иметь атрибут name для отправки.<br>
+      Если атрибут name опущен, данные этого поля ввода вообще не будут отправлены.</p>
+  <h3>HTML Форма без name</h3>
+
+  <form action="/action_page.php" target="_blank" method="GET">
+    Имя:<br>
+      <label>
+          <input type="text" value="Андрей">
+      </label>
+      <br>
+    Фамилия:<br>
+      <label>
+          <input type="text" name="lastname" value="Щипунов">
+      </label>
+      <br><br>
+    <input type="submit" value="Отправить">
+  </form>
+
+  <p>Если Вы нажмете кнопку "Отправить", данные формы будут отправлены на
+     страницу с именем "/action_page.php".</p>
+
+  <p>Обратите внимание, что значение поля "Имя" не будет отправлено, поскольку
+     элемент ввода не имеет атрибута name.</p>
+
+  <img src="pictures/list_form_attributes.png" height="361" width="1000"
+  alt="list_form_attributes"/>
+  <h1>HTML Элементы ввода</h1>
+  <h3>Элемент input</h3>
+    <p>Элемент input может быть отображен несколькими способами, в зависимости от атрибута type.</p>
+    <p>Если атрибут type опущен, поле ввода получает значение по умолчанию тип: "text".</p>
+    <form action="../action_page.php">
+      Введите свое имя:
+        <label>
+            <input name="firstname" type="text">
+        </label>
+        <br><br>
+      <input type="submit">
+    </form>
+  <h3>Элемент select</h3>
+    <p>Элемент option определяет параметр, который может быть выбран.<br>
+        По умолчанию выбирается первый элемент в раскрывающемся списке.<br>
+        Чтобы определить предварительно выбранный параметр, добавьте атрибут
+        <strong>selected</strong> с параметром option:</p>
+    <p>Используйте атрибут
+        <strong>size</strong> для указания количества видимых значений:</p>
+  <p>Используйте множественный атрибут <strong>multiple</strong>, чтобы
+      позволить
+      пользователю выбрать
+      более одного значения.</p>
+  <p>Нажмите и удерживайте кнопку Ctrl (windows) / Command (Mac), чтобы
+     выбрать несколько параметров.</p>
+    <p>Элемент select определяет раскрывающийся список:</p>
+    <form action="/action_page.php">
+        <label>
+            <select name="cars" size="3" multiple>
+              <option value="volvo">Вольво</option>
+              <option value="saab">Saab</option>
+              <option value="fiat">Fiat</option>
+              <option value="Фиат" selected>Фиат</option>
+              <option value="audi">Audi</option>
+                <option value="bmw">BMW</option>
+            </select>
+        </label>
+        <br><br>
+      <input type="submit">
+    </form>
+  <h3>Элемент textarea</h3>
+  <p>Атрибут <strong>rows</strong> указывает видимое количество строк в текстовой
+        области.<br>
+      Атрибут <strong>cols</strong>  определяет видимую ширину текстовой
+      области.<br>
+      Именно так приведенный выше HTML код будет отображаться в браузере:</p>
+    <p>Элемент textarea элемент определяет многострочное поле ввода (текстовой области):</p>
+    <form action="/action_page.php">
+      <textarea name="message" rows="10" cols="30">Кошка играла в саду
+         .</textarea>
+      <br>
+      <input type="submit">
+    </form>
+    <p>Используйте CSS для изменения размера текстовой области:</p>
+
+    <form action="../action_page.php">
+      <textarea name="message"
+                style="width:200px; height:100px;">Кошка&nbsp;играла в саду.</textarea>
+      <br>
+      <input type="submit">
+    </form>
+  <h3>Элемент button</h3>
+    <p>Элемент button определяет кликабельность button:</p>
+    <button style="color: green" type="button"
+            onclick="alert('Hello world!')">Нажмите Меня!</button>
+    <p>Примечание: Всегда указывайте атрибут type для элемента button. Различные браузеры могут использовать различные типы по умолчанию для элемента button.</p>
+  <h3>Элементы fieldset и legend</h3>
+  <p>Элемент <strong>fieldset</strong> используется для группировки связанных
+        данных в
+        форме.<br>
+        Элемент <strong>legend</strong>  определяет заголовок для элемента <strong>fieldset</strong>.</p>
+    <form action="/action_page.php">
+      <fieldset>
+        <legend>Персональная информация:</legend>
+        Имя:<br>
+        <input type="text" name="firstname" value="Андрей">
+        <br>
+        Фамилия:<br>
+        <input type="text" name="lastname" value="Щипунов">
+        <br><br>
+        <input type="submit" value="Отправить">
+      </fieldset>
+    </form>
+  <h3>Элемент datalist</h3>
+    <p>Элемент datalist задает список предопределенных параметров для
+        элемента input.<br>
+        При вводе данных пользователи будут видеть раскрывающийся список
+        предопределенных параметров.<br>
+        Атрибут list элемента input, обращается к атрибуту id элемента datalist.</p>
+    <p>Элемент datalist задает список предопределенных параметров для элемента ввода.</p>
+
+    <form action="/action_page.php">
+      <input list="browsers" name="browser">
+      <datalist id="browsers">
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Opera">
+        <option value="Safari">
+      </datalist>
+      <input type="submit">
+    </form>
+
+    <p><b>Примечание:</b> Тег datalist не поддерживается в Safari и IE9 (и ранее).</p>
+  <h3>Элемент output</h3>
+    <p>Элемент output элемент представляет собой результат вычисления (например, выполняемого скриптом).</p>
+    <form action="/action_page.php"
+    oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+      0
+      <input type="range" id="a" name="a" value="50">
+      100 +
+      <input type="number" id="b" name="b" value="50">
+      =
+      <output name="x" for="a b"></output>
+      <br><br>
+      <input type="submit">
+    </form>
+
+    <p><strong>Примечание:</strong> Элемент output не поддерживается в Edge 12 или Internet Explorer и более ранних версиях.</p>
+    <img src="pictures/form_elements.png" height="687" width="1000"
+    alt="form_elements.png"/>
+
+<h1>HTML Типы ввода</h1>
+    <h3>Вот различные типы ввода, которые вы можете использовать в HTML:</h3>
+    <ul>
+        <li><code>&#8249input type="text"&#8250</code></li>
+        <li><code>&#8249input type="button"&#8250</code></li>
+        <li><code>&#8249input type="checkbox"&#8250</code></li>
+        <li><code>&#8249input type="color"&#8250</code></li>
+        <li><code>&#8249input type="date"&#8250</code></li>
+        <li><code>&#8249input type="datetime-local"&#8250</code></li>
+        <li><code>&#8249input type="email"&#8250</code></li>
+        <li><code>&#8249input type="file"&#8250</code></li>
+        <li><code>&#8249input type="hidden"&#8250</code></li>
+        <li><code>&#8249input type="image"&#8250</code></li>
+        <li><code>&#8249input type="month"&#8250</code></li>
+        <li><code>&#8249input type="number"&#8250</code></li>
+        <li><code>&#8249input type="password"&#8250</code></li>
+        <li><code>&#8249input type="radio"&#8250</code></li>
+        <li><code>&#8249input type="range"&#8250</code></li>
+        <li><code>&#8249input type="search"&#8250</code></li>
+        <li><code>&#8249input type="tel"&#8250</code></li>
+        <li><code>&#8249input type="time"&#8250</code></li>
+        <li><code>&#8249input type="url">&#8250</code></li>
+        <li><code>&#8249input type="week"&#8250</code></li>
+    </ul>
+    <h3>HTML Тип ввода text</h3>
+        <p>input type="text" определяет однострочное поле ввода текста:</p>
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname" name="fname"><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname" name="lname">
+        </form>
+
+        <h3>Тип ввода "password"</h3>
+        <p>input type="password" определяет поле пароля:</p>
+        <form>
+          <label for="username">Имя пользователя:</label><br>
+          <input type="text" id="username" name="username"><br>
+          <label for="pwd">Пароль:</label><br>
+          <input type="password" id="pwd" name="pwd">
+        </form>
+        <p>Символы в поле пароля маскируются (отображаются в виде звездочек или кружочков).</p>
+    <h3>Тип ввода "submit"</h3>
+        <p>input type="submit" определяет кнопку для предоставление данных формы в
+            обработчик форм.<br>
+            Обработчик форм обычно представляет собой серверную страницу со скриптом
+            для обработки входных данных.<br>
+            Обработчик формы задается в окне формы атрибут action:</p>
+
+        <form action="/action_page.php">
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname1" name="fname1" value="Андрей"><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname1" name="lname1" value="Щипунов"><br><br>
+          <input type="submit" value="Отправить">
+        </form>
+        <p>Если вы опустите атрибут value кнопки submit, то кнопка получит текст по умолчанию"submit"</p>
+    <h3>Тип ввода "reset"</h3>
+        <p>input type="reset" определяет кнопку сброса это приведет к сбросу всех значений формы к их значениям по умолчанию:</p>
+        <form action="/action_page.php">
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname2" name="fname2" value="Андрей"><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname2" name="lname2" value="Щипунов"><br><br>
+          <input type="submit" value="Отправить">
+          <input type="reset">
+        </form>
+        <p>Если вы измените входные значения и затем нажмете кнопку "Сброс", то данные формы будут сброшены до значений по умолчанию.</p>
+    <h3>Тип ввода "radio"</h3>
+        <p>input type="radio" определяет переключатель.<br>
+            Переключатели позволяют пользователю выбрать только один из ограниченного числа вариантов:</p>
+        <form>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Мужчина</label><br>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Женщина</label><br>
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">другое</label>
+        </form>
+    <h3>Тип ввода "checkbox"</h3>
+        <p>input type="checkbox" определяет флажок.<br>
+            Флажки позволяют пользователю выбрать ноль или более вариантов из ограниченного числа вариантов.</p>
+        <form>
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+          <label for="vehicle1"> У меня есть велосипед</label><br>
+          <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+          <label for="vehicle2"> У меня есть машина</label><br>
+          <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+          <label for="vehicle3"> У меня есть лодка</label>
+        </form>
+    <h3>Тип ввода "button"</h3>
+        <p>input type="button" определяет кнопку:</p>
+        <input type="button" onclick="alert('Привет Мир!')"
+               value="Нажмите Меня!"><br><br>
+        <input type="button" onclick="alert('Я же просил не нажимать!')" style="color: red"
+               value="Не нажимай меня Меня!">
+    <h3>Тип ввода "color"</h3>
+        <p>input type="color" используется для полей ввода, которые должны содержать
+            цвет.<br>
+            В зависимости от поддержки браузера в поле ввода может отображаться палитра цветов.</p>
+        <form>
+          <label for="favcolor">Выберите свой любимый цвет:</label>
+          <input type="color" id="favcolor" name="favcolor">
+        </form>
+    <h3>Тип ввода "date"</h3>
+        <p>input type="date" используется для полей ввода, которые должны содержать
+            дату.<br>
+            В зависимости от поддержки браузера в поле ввода может отображаться средство выбора даты.</p>
+        <form>
+          <label for="birthday">День рождения:</label>
+          <input type="date" id="birthday" name="birthday">
+        </form>
+        <p>Вы также можете использовать атрибуты min и max для добавления ограничений к датам:</p>
+        <form>
+          <label for="datemax">Введите дату до 1980-01-01:</label>
+          <input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+          <label for="datemin">Введите дату после 2000-01-01:</label>
+          <input type="date" id="datemin" name="datemin" min="2000-01-02">
+        </form>
+    <h3>Тип ввода "datetime-local"</h3>
+        <p>input type="datetime-local" задает поле ввода даты и времени без часового
+            пояса.<br>
+            В зависимости от поддержки браузера в поле ввода может отображаться средство выбора даты.</p>
+        <form>
+          <label for="birthdaytime">День рождения (дата и время):</label>
+          <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+        </form>
+    <h3>Тип ввода "email"</h3>
+        <p>input type="email"> используется для полей ввода, которые должны содержать
+            адрес электронной почты.<br>
+            В зависимости от поддержки браузера адрес электронной почты может быть
+            автоматически проверен при отправке.<br>
+            Некоторые смартфоны распознают тип электронной почты и добавляют ".com" к клавиатуре, чтобы соответствовать вводу электронной почты.</p>
+        <form>
+          <label for="email">Введите свой адрес электронной почты:</label>
+          <input type="email" id="email" name="email">
+        </form>
+    <h3>Тип ввода "file"</h3>
+        <p>input type="file" определяет поле выбор файла в "браузере" и кнопку для загрузки файла.</p>
+        <form>
+          <label for="myfile">Выбрать файл:</label>
+          <input type="file" id="myfile" name="myfile">
+        </form>
+    <h3>Тип ввода "month"</h3>
+        <p>input type="month" позволяет пользователю выбрать месяц и год.<br>
+            В зависимости от поддержки браузера в поле ввода может отображаться
+            средство выбора даты.</p>
+        <form>
+          <label for="bdaymonth">День рождения (месяц и год):</label>
+          <input type="month" id="bdaymonth" name="bdaymonth">
+        </form>
+    <h3>Тип ввода "number"</h3>
+        <p>input type="number" определяет числовое поле ввода.<br>
+            Вы также можете установить ограничения на то, какие номера принимаются.<br>
+            В следующем примере отображается числовое поле ввода, в которое можно ввести значение от 1 до 5:</p>
+        <form>
+          <label for="quantity">Количество (от 1 до 10):</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="10">
+        </form>
+      <img src="pictures/input_constraints.png" height="735" width="1000"
+      alt="input_constraints"/>
+    <h3>Тип ввода "range"</h3>
+        <p>input type="range" определяет элемент управления для ввода числа, точное значение
+            которого не имеет значения (например, ползунок управления).
+            Диапазон по умолчанию от 0 до 100. Однако вы можете установить ограничения на то,
+            какие номера принимаются с помощью атибутов min, max, и step:</p>
+        <form>
+          <label for="vol">Громкость (от 0 до 50):</label>
+          <input type="range" id="vol" name="vol" min="0" max="50">
+        </form>
+    <h3>Тип ввода "search"</h3>
+        <p>input type="search"> используется для полей поиска (поле поиска ведет себя как обычное текстовое поле).</p>
+    <h3>Тип ввода "tel"</h3>
+        <p>input type="tel" используется для полей ввода, которые должны содержать номер телефона.</p>
+        <form>
+          <label for="phone">Введите свой номер телефона:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+        </form>
+    <h3>Тип ввода "time"</h3>
+        <p>input type="time" позволяет пользователю выбрать время (без часового
+            пояса).<br>
+            В зависимости от поддержки браузера в поле ввода может отображаться средство выбора времени.</p>
+        <form>
+          <label for="appt">Выберите время:</label>
+          <input type="time" id="appt" name="appt">
+        </form>
+    <h3>Тип ввода "url"</h3>
+        <p>input type="url" используется для полей ввода, которые должны содержать
+            URL адрес.<br>
+            В зависимости от поддержки браузера поле url адреса может быть
+            автоматически проверено при отправке.<br>
+            Некоторые смартфоны распознают тип URL адреса, и добавляют, ".com" на клавиатуре, чтобы соответствовать ввода URL адреса.</p>
+        <form>
+          <label for="homepage">Добавьте свою домашнюю страницу:</label>
+          <input type="url" id="homepage" name="homepage">
+        </form>
+    <h3>Тип ввода "week"</h3>
+        <p>input type="week" позволяет пользователю выбрать неделю и год.<br>
+            В зависимости от поддержки браузера в поле ввода может отображаться средство выбора даты.</p>
+        <form>
+          <label for="week">Выберите неделю:</label>
+          <input type="week" id="week" name="week">
+        </form>
+
+<h1>HTML Атрибуты ввода</h1>
+    <p>В этой главе описываются различные атрибуты HTML кода элемента
+        <strong>input</strong>.</p>
+    <h3>Атрибут value</h3>
+        <p>Ввод атрибута value задает начальное значение для поля ввода:</p>
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname3" name="fname3" value="Андрей"><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname3" name="lname3" value="Щипунов">
+        </form>
+    <h3>Атрибут readonly</h3>
+        <p>Ввод атрибута readonly указывает, что поле ввода доступно только для
+            чтения.<br>
+            Поле ввода только для чтения не может быть изменено (однако пользователь
+            может перейти к нему, выделить его и скопировать текст из него).<br>
+            Значение поля ввода только для чтения будет отправлено при отправке формы!</p>
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname4" name="fname4" value="Андрей" readonly><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname4" name="lname4" value="Щипунов">
+        </form>
+    <h3>Атрибут disabled</h3>
+        <p>Ввод атрибута disabled указывает, что поле ввода должно быть отключено.<br>
+            Отключенное поле ввода непригодно для использования и не кликабельно.<br>
+            Значение отключенного поля ввода не будет отправлено при отправке формы!</p>
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname5" name="fname5" value="Андрей" disabled><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname5" name="lname5" value="Щипунов">
+        </form>
+    <h3>Атрибут size</h3>
+        <p>Ввод атрибута size определяет видимую ширину поля ввода в символах.<br>
+            Значение по умолчанию для size 20.<br>
+            Примечание: Атрибут size работает со следующими типами входных данных:<br>
+            <strong>text, search, tel, url, email, и password.</strong></p>
+
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname6" name="fname6" size="50"><br>
+          <label for="pin">PIN:</label><br>
+          <input type="text" id="pin" name="pin" size="4">
+        </form>
+    <h3>Атрибут maxlength</h3>
+        <p>Ввод атрибута maxlength задает максимальное количество символов,
+            разрешенных в поле ввода.<br>
+            Примечание: Когда задано maxlength, то поле ввода не будет принимать больше указанного
+            количества символов. Однако этот атрибут не дает никакой обратной связи.
+            Поэтому, если вы хотите предупредить пользователя, вы должны написать код JavaScript.</p>
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname7" name="fname7" size="50"><br>
+          <label for="pin">ПИН:</label><br>
+          <input type="text" id="pin2" name="pin2" maxlength="4" size="4">
+        </form>
+    <h3>Атрибуты min и max</h3>
+        <p>Ввод атрибутов min и max определяют минимальное и максимальное значения
+            для поля ввода.<br>
+            Атрибуты min и max работают со следующими типами входных данных:
+            <strong>number, range, date, datetime-local, month, time и week</strong>.<br>
+            Совет: Используйте атрибуты max и min вместе для создания диапазона допустимых значений.</p>
+        <form>
+          <label for="datemax">Введите дату до 1980-01-01:</label>
+          <input type="date" id="datemax2" name="datemax" max="1979-12-31"><br><br>
+
+          <label for="datemin">Введите дату после 2000-01-01:</label>
+          <input type="date" id="datemin2" name="datemin" min="2000-01-02"><br><br>
+
+          <label for="quantity">Количество (от 1 до 5):</label>
+          <input type="number" id="quantity2" name="quantity" min="1" max="5">
+        </form>
+    <h3>Атрибут multiple</h3>
+        <p>Ввод атрибута multiple указывает, что пользователю разрешено вводить более
+            одного значения в поле ввода.<br>
+            Атрибут multiple атрибут работает со следующими типами входных
+            данных:<strong> email, и file</strong>.</p>
+        <form>
+          <label for="files">Выбор файлов:</label>
+          <input type="file" id="files" name="files" multiple>
+        </form>
+    <h3>Атрибут pattern</h3>
+        <p>Ввод атрибута pattern указывает регулярное выражение, по которому
+            проверяется значение поля ввода при отправке формы.<br>
+            Атрибут pattern атрибут работает со следующими типами входных данных:
+            <strong>text, date, search, url, tel, email, и password</strong>.<br>
+            Совет: Используйте глобальный атрибут title для описания шаблона, чтобы помочь пользователю.</p>
+        <form>
+          <label for="country_code">Код страны:</label>
+          <input type="text" id="country_code" name="country_code"
+          pattern="[A-Za-z]{3}" title="Трехбуквенный код страны">
+        </form>
+    <h3>Атрибут placeholder</h3>
+        <p>Ввод атрибута placeholder задает короткую подсказку, описывающую ожидаемое
+            значение поля ввода (примерное значение или краткое описание ожидаемого
+            формата).<br>
+            Короткая подсказка отображается в поле ввода до того, как пользователь
+            вводит значение.<br>
+            Атрибут placeholder работает со следующими типами входных данных:
+            <strong>text, search, url, tel, email, и password</strong>.</p>
+        <form>
+          <label for="phone">Введите номер телефона:</label>
+          <input type="tel" id="phone2" name="phone"
+          placeholder="123-45-678"
+          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+        </form>
+    <h3>Атрибут required</h3>
+        <p>Ввод атрибута required указывает, что перед отправкой формы необходимо
+            заполнить поле ввода.<br>
+            Атрибут required работает со следующими типами входных данных:
+            <strong>text, search, url, tel, email, password, date pickers, number, checkbox,
+                radio, и file</strong>.</p>
+        <form>
+          <label for="username">Имя пользователя:</label>
+          <input type="text" id="username2" name="username" required>
+        </form>
+    <h3>Атрибут step</h3>
+        <p>Ввод атрибута step задает допустимые интервалы чисел для поля ввода.
+
+        Пример: Если step="3", законными числами могут быть -3, 0, 3, 6 и т.д.<br>
+            Совет: Этот атрибут можно использовать вместе с атрибутами max и min для
+            создания диапазона допустимых значений.<br>
+            Атрибут step работает со следующими типами входных данных:<strong>number,
+                range, date, datetime-local, month, time и week.</strong></p>
+        <form>
+          <label for="points">Точки:</label>
+          <input type="number" id="points" name="points" step="3">
+        </form>
+        <p>Примечание: Ограничения ввода не являются надежными, и JavaScript предоставляет множество способов добавления незаконных входных данных.
+            Чтобы безопасно ограничить ввод, он также должен быть проверен получателем (сервером)!</p>
+    <h3>Атрибут autofocus</h3>
+        <p>Ввод атрибута autofocus указывает, что поле ввода должно автоматически получать Фокус при загрузке страницы.</p>
+        <form>
+          <label for="fname">Имя:</label><br>
+          <input type="text" id="fname8" name="fname8" autofocus><br>
+          <label for="lname">Фамилия:</label><br>
+          <input type="text" id="lname8" name="lname8">
+        </form>
+    <h3>Атрибуты height и width</h3>
+        <p>Ввод атрибутов height и width определяют высоту и ширину объекта элемента &#8249input type="image"&#8250 </p>
+        <p style="background: mintcream">Совет: Всегда указывайте атрибуты высоты и ширины для
+            изображений. Если заданы высота и ширина, то пространство, необходимое для изображения,
+            резервируется при загрузке страницы. Без этих атрибутов браузер не знает размер изображения
+            и не может зарезервировать для него соответствующее пространство.
+            Эффект будет заключаться в том, что макет страницы будет меняться во время загрузки (в то время как изображения загружаются).</p>
+    <h3>Атрибут list</h3>
+        <p>Ввод атрибута list относится к элементу datalist, содержащий предварительно определенные параметры для элемента input.</p>
+        <form>
+          <input list="browsers">
+          <datalist id="browsers2">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+          </datalist>
+        </form>
+    <h3>Атрибут autocomplete</h3>
+        <p>Ввод атрибута autocomplete указывает, должна ли форма или поле ввода иметь
+            автозаполнение включено или выключено.,br>
+            Автозаполнение позволяет браузеру предсказать значение. Когда пользователь начинает вводить поле, браузер должен отображать
+            параметры для заполнения поля, основанные на ранее введенных значениях.<br>
+            Атрибут autocomplete работает с form и input типами:
+            <strong>text, search, url, tel, email, password, datepickers, range, и color</strong>.</p>
+        <form action="/action_page.php" autocomplete="on">
+          <label for="fname">Имя:</label>
+          <input type="text" id="fname9" name="fname"><br><br>
+          <label for="lname">Фамилия:</label>
+          <input type="text" id="lname9" name="lname"><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email9" name="email" autocomplete="off"><br><br>
+          <input type="submit" value="Отправить">
+        </form>
+
+    <h1>HTML Атрибуты форм ввода</h1>
+        <p>В этой главе описываются различные атрибуты form* для элемента input HTML кода.</p>
+        <h3>Атрибут form</h3>
+            <p>Ввод атрибута form определяет форму элемента input.<br>
+                Значение этого атрибута должно быть равно атрибуту id элемента form, которому он принадлежит.</p>
+            <h4>HTML Поле ввода вне HTML формы</h4>
+
+            <form action="/action_page.php" id="form1">
+              <label for="fname">Имя:</label>
+              <input type="text" id="fname10" name="fname10"><br><br>
+              <input type="submit" value="Отправить"><br><br>
+            </form>
+
+            <label for="lname">Фамилия:</label>
+            <input type="text" id="lname10" name="fname10" form="form1">
+        <h3>Атрибут formaction</h3>
+            <p>Ввод атрибута formaction указывает URL адрес файла, который будет
+                обрабатывать входные данные при отправке формы.<br>
+                Примечание: Этот атрибут переопределяет action атрибут элемента form.<br>
+                Атрибут formaction работает со следующими типами входных данных: submit и image.</p>
+            <h4>HTML форма с двумя кнопками отправки, с различными действиями:</h4>
+
+            <form action="/action_page.php">
+              <label for="fname">Имя:</label>
+              <input type="text" id="fname11" name="fname11"><br><br>
+              <label for="lname">Фамилия:</label>
+              <input type="text" id="lname11" name="lname11"><br><br>
+              <input type="submit" value="Отправить">
+              <input type="submit" formaction="/action_page2.php" value="Отправить администратору">
+            </form>
+        <h3>Атрибут formenctype</h3>
+            <p>Ввод атрибута formenctype указывает, как данные формы должны быть
+                закодированы при отправке (только для форм с method="post").<br>
+                Примечание: Этот атрибут переопределяет атрибут enctype объекта элемента
+                form.<br>
+                Атрибут formenctype работает со следующими типами входных данных: submit и image.</p>
+            <p>HTML Форма с двумя кнопками отправки</p>
+
+            <form action="/action_page_binary.php" method="post">
+              <label for="fname">Имя:</label>
+              <input type="text" id="fname12" name="fname12"><br><br>
+              <input type="submit" value="Отправить">
+              <input type="submit" formenctype="multipart/form-data"
+              value="Отправить Multipart/form-data">
+            </form>
+    <h3>Атрибут formmethod</h3>
+        <p>Ввод атрибута formmethod определяет HTTP метод для отправки данных формы
+            на URL адрес действия.<br>
+            Примечание: Этот атрибут переопределяет атрибут method объекта элемента
+            form.<br>
+            Атрибут formmethod работает со следующими типами входных данных: submit и
+            image.<br>
+            Данные формы могут быть отправлены в виде переменных URL адреса (method="get") или как HTTP post транзакция (method="post").</p>
+        <p><strong>Примечание метод "get":</strong></p>
+        <ul>
+            <li>Этот метод добавляет данные формы к URL адресу парами имя/значение</li>
+            <li>Этот метод полезен для отправки форм, когда пользователь хочет добавить результат в закладки</li>
+            <li>Существует ограничение на количество данных, которые вы можете разместить в URL адресе (зависит от браузера), поэтому вы не можете быть уверены, что все данные формы будут правильно переданы</li>
+            <li>Никогда не используйте метод "get" для передачи конфиденциальной информации! (пароль или другая конфиденциальная информация будет видна в адресной строке браузера)</li>
+        </ul>
+          <p><strong>Примечание метод "post":</strong></p>
+        <ul>
+            <li>Этот метод отправляет данные формы в виде транзакции HTTP post</li>
+            <li>Отправленные формы с помощью метода "post" не могут быть помечены закладками</li>
+            <li>Метод "post" является более надежным и безопасным, чем "get", и не имеет ограничений по размеру</li>
+        </ul>
+        <p>HTML  Форма отправки GET и POST.<br>
+            Форма с двумя кнопками отправки. Первый отправляется данные формы с помощью method="get". Второй отправляется данные формы с помощью method="post":</p>
+
+        <form action="/action_page.php" method="get">
+          <label for="fname">Имя:</label>
+          <input type="text" id="fname13" name="fname13"><br><br>
+          <label for="lname">Фамилия:</label>
+          <input type="text" id="lname13" name="lname13"><br><br>
+          <input type="submit" value="Отправить GET">
+          <input type="submit" formmethod="post" value="Отправить POST">
+        </form>
+    <h3>Атрибут formtarget</h3>
+        <p>Ввод атрибута formtarget атрибут задает имя или ключевое слово,
+            указывающее, где будет отображаться ответ, полученный после отправки
+            формы.<br>
+            Примечание: Этот атрибут переопределяет целевой атрибут объекта элемента
+            form.<br>
+            Атрибут formtarget работает со следующими типами входных данных: submit и image.</p>
+        <p>HTML Форма отправки с разными целевыми окнами</p>
+
+        <form action="/action_page.php">
+          <label for="fname">Имя:</label>
+          <input type="text" id="fname14" name="fname14"><br><br>
+          <label for="lname">Фамилия:</label>
+          <input type="text" id="lname14" name="lname14"><br><br>
+          <input type="submit" value="Отправить">
+          <input type="submit" formtarget="_blank" value="Отправить в новом окно/вкладку">
+        </form>
+    <h3>Атрибут formnovalidate</h3>
+        <p>Ввод атрибута formnovalidate указывает, что элемент input не должен
+            проверяться при отправке.<br>
+            Примечание: Этот атрибут переопределяет атрибут novalidate объекта
+            элемента form.<br>
+            Атрибут formnovalidate атрибут работает со следующими типами входных данных: submit.</p>
+        <p>HTML Форма с проверкой и без</p>
+
+        <form action="/action_page.php">
+          <label for="email">Введите свой адрес электронной почты:</label>
+          <input type="email" id="email2" name="email2"><br><br>
+          <input type="submit" value="Отправить">
+          <input type="submit" formnovalidate="formnovalidate"
+          value="Отправить без проверки">
+        </form>
+    <h3>Атрибут novalidate</h3>
+        <p>Атрибут novalidate атрибута form.<br>
+              При наличии novalidate указывает, что все данные формы не должны проверяться при отправке.</p>
+        <p>HTML форма без проверки</p>
+
+        <form action="/action_page.php" novalidate>
+          <label for="email">Введите свой адрес электронной почты:</label>
+          <input type="email" id="email3" name="email3"><br><br>
+          <input type="submit" value="Отправить">
+        </form>
+</body>
+</html>
